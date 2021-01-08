@@ -5,6 +5,7 @@
   "version": "0.0.1",
   "description": "move element directive for Vue",
   "main": "index.js",
-  "repository": "vue-bulma/click-outside",
-  "license": "MIT"
+  "license": "MIT",
+  "repository": "https://github.com/onaug6th/vue-element-move",
+  "readmeFilename": "README.md"
 }
