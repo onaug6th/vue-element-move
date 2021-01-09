@@ -2,7 +2,7 @@
   "author": "onaug6th@qq.com",
   "maintainers": ["onaug6th@qq.com"],
   "name": "vue-element-move",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "move element directive for Vue",
   "main": "index.js",
   "license": "MIT",

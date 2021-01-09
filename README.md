@@ -1,5 +1,8 @@
 # vue-element-move
-vue-element-move
+
+[![npm (scoped)](https://img.shields.io/npm/v/vue-element-move.svg)](https://www.npmjs.com/package/vue-element-move)
+
+directive for moving elements.
 
 ## Install
 ```

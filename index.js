@@ -52,12 +52,10 @@ export default {
       cursor: el.getAttribute("move-cursor") || "cursor"
     };
 
+    //  settimeout是为了等待dom完全mounted后再执行获取正确的值
     setTimeout(() => {
+      //  正在移动
       let isMoving = false;
-      //  拖拽前光标位置距离整个页面左侧的距离
-      let disX = "";
-      //  拖拽前光标位置距离整个页面顶部的距离
-      let disY = "";
       //  当前拖拽移动节点
       const targetNode = value();
 
@@ -67,14 +65,17 @@ export default {
        * 处理鼠标按下事件，记录鼠标的各项位置，准备拖拽窗体
        */
       function handleMouseDown(event) {
+        const el = event.target;
         const moveDisabled = el.getAttribute("move-disabled");
         if (moveDisabled) {
           return false;
         }
 
         isMoving = true;
-        disX = event.clientX - targetNode.offsetLeft;
-        disY = event.clientY - targetNode.offsetTop;
+        //  拖拽前光标位置距离整个页面左侧的距离
+        el.__move__.disX = event.clientX - targetNode.offsetLeft;
+        //  拖拽前光标位置距离整个页面顶部的距离
+        el.__move__.disY = event.clientY - targetNode.offsetTop;
 
         //  鼠标移动（移动窗口）
         on(document, "mousemove", handleMouseMove);
@@ -96,9 +97,9 @@ export default {
           if(el.__move__.xByRight) {
             xLoc = document.documentElement.clientWidth -
               event.clientX -
-              (targetNode.clientWidth - disX)
+              (targetNode.clientWidth - el.__move__.disX)
           } else {
-            xLoc = event.clientX - disX;
+            xLoc = event.clientX - el.__move__.disX;
           }
 
           if(el.__move__.yByBottom) {
