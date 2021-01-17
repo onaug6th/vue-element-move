@@ -105,9 +105,9 @@ export default {
           if(el.__move__.yByBottom) {
             yLoc = document.documentElement.clientHeight -
             event.clientY -
-            (targetNode.clientHeight - disY)
+            (targetNode.clientHeight - el.__move__.disY)
           } else {
-            yLoc = event.clientY - disY;
+            yLoc = event.clientY - el.__move__.disY;
           }
 
           if (!el.__move__.moveOut) {
